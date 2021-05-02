@@ -1,8 +1,6 @@
 import './App.css';
 import React from 'react';
-import {
-    ToastContainer,toast
-} from "react-toastify";
+import {ToastContainer,toast} from "react-toastify";
 import Header from "./components/header";
 import AllArtists from "./components/AllArtists";
 import Artists_Options from "./components/Artists-Options";

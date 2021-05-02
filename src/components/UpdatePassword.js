@@ -46,7 +46,7 @@ const UpdatePassword=()=>{
                         id={"oldPassword"}
                         placeholder={"Type Old Password"}
                         onChange={(e)=>{
-                            setUser({...user,oldPassword: e.target.value})
+                            setUser({...user,old: e.target.value})
                         }}
                     />
                 </FormGroup>
@@ -57,7 +57,7 @@ const UpdatePassword=()=>{
                         id={"newPassword"}
                         placeholder={"Type New Password"}
                         onChange={(e)=>{
-                            setUser({...user,newPassword: e.target.value})
+                            setUser({...user,newp: e.target.value})
                         }}
                     />
                 </FormGroup>
@@ -69,7 +69,7 @@ const UpdatePassword=()=>{
                         id={"newPassword2"}
                         placeholder={"Re-Type New Password"}
                         onChange={(e)=>{
-                            setUser({...user,newPassword2: e.target.value})
+                            setUser({...user,newp2: e.target.value})
                         }}
                     />
                 </FormGroup>
