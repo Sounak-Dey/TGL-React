@@ -12,7 +12,6 @@ const Admin_Options=(props)=>{
             <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Artists</Button>
             <Collapse isOpen={isOpen}>
             <ListGroup>
-                <Link className="list-group-item list-group-item-action" tag="a" to="/Admin-Options/add-artist" action>Add Artist</Link>
                 <Link className="list-group-item list-group-item-action" tag="a" to="/Admin-Options/all-artists" action>All Artists</Link>
             </ListGroup>
             </Collapse>
@@ -26,7 +25,6 @@ const Admin_Options=(props)=>{
             <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Requests</Button>
             <Collapse isOpen={isOpen}>
                 <ListGroup>
-                    <Link className="list-group-item list-group-item-action" tag="a" to="/Admin-Options/all-artist-requests" action>Artist Requests</Link>
                     <Link className="list-group-item list-group-item-action" tag="a" to="/Admin-Options/all-category-requests" action>Category Requests</Link>
                 </ListGroup>
             </Collapse>

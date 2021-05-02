@@ -14,7 +14,7 @@ const MyProfile=()=>{
     const [artist,setArtist] = useState({});
         //function to call server;
         const getArtistFromServer=()=>{
-            axios.get(`${base_url}/artists/1`).then(
+            axios.get(`${base_url}/artists/hello@aliciasouza.com`).then(
                 (response)=>{
                     console.log(response.data);
                     setArtist(response.data);

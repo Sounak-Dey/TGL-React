@@ -4,9 +4,9 @@ import axios from "axios";
 import base_url from "../api/bootapi";
 import {toast} from 'react-toastify';
 
-const AddArtist=()=>{
+const Register=()=>{
     useEffect(() => {
-        document.title="add artist";
+        document.title="register";
     },[]);
 
     const [artist,setArtist]=useState({});
@@ -20,7 +20,7 @@ const AddArtist=()=>{
 
     //creating function to post data
     const postDatatoServer= (data) => {
-        axios.post( `${base_url}/artists`,data).then(
+        axios.post( `${base_url}/register`,data).then(
             (response)=>{
                 console.log(response);
                 toast.success("Artist added!",{
@@ -53,14 +53,26 @@ const AddArtist=()=>{
                     />
                 </FormGroup>
                 <FormGroup>
-                    <label for="email">Enter email:</label>
+                    <label for="username">Enter email:</label><br/>
                     <input
                         type={"text"}
-                        placeholder={"email"}
+                        placeholder={"Username"}
                         name={"artistemail"}
                         id={"email"}
                         onChange={(e)=>{
                             setArtist({...artist,email: e.target.value})
+                        }}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <label for="email">Enter password:</label>
+                    <input
+                        type={"password"}
+                        placeholder={"password"}
+                        name={"artistpassword"}
+                        id={"password"}
+                        onChange={(e)=>{
+                            setArtist({...artist,password: e.target.value})
                         }}
                     />
                 </FormGroup>
@@ -101,9 +113,10 @@ const AddArtist=()=>{
                         }}
                     />
                 </FormGroup>
+                {/*photo left*/}
 
                 <Container className={"text-center"}>
-                    <Button type="submit" color={"success"}>Add Artist</Button>
+                    <Button type="submit" color={"success"}>Register</Button>
                     <Button
                         type="reset"
                         color={"warning ml-3"}>Clear</Button>
@@ -113,4 +126,4 @@ const AddArtist=()=>{
     )
 }
 
-export default AddArtist
+export default Register;
