@@ -31,7 +31,7 @@ function App() {
          <Router>
          <ToastContainer />
          <Container>
-             <Header />
+             {/* <Header /> */}
              {/*<Route exact path='/' component={ManagerDashboard}>*/}
              {/*</Route>*/}
              <Route exact path="/Login" component={Login}>
