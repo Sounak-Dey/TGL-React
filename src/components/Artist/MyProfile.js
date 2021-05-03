@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Artist from "./Artist";
+import Artist from "../Admin/Artist";
 import {Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Container} from "reactstrap";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
 
@@ -11,10 +11,11 @@ const MyProfile=()=>{
             document.title="My profile";
         },[]);
 
+        const email = localStorage.getItem('email');
     const [artist,setArtist] = useState({});
         //function to call server;
         const getArtistFromServer=()=>{
-            axios.get(`${base_url}/artists/hello@aliciasouza.com`).then(
+            axios.get(`${base_url}/artists/${email}`).then(
                 (response)=>{
                     console.log(response.data);
                     setArtist(response.data);

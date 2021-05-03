@@ -1,7 +1,7 @@
 import React, {useEffect , useState} from 'react'
 import {Button, Form, FormGroup, Label, Input, FormText, Container} from 'reactstrap';
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
 
 const Register=()=>{

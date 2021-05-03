@@ -1,19 +1,21 @@
 import React, { useState,useEffect } from 'react';
-import PropTypes from 'prop-types';
-// import './Login.css';
 import axios from 'axios';
-// import {ReactComponent as bg} from './bg.svg'
 import avatar from './avatar.svg'
 import wavei from './wave.png'
 import gb from './gift-box.png'
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
+import Admin_Options from "../Admin/Admin-Options";
+import Artists_Options from "../Artist/Artists-Options";
+import Register from "../Artist/Register";
+import Explore from "../Users/Explore";
 
 const Login=()=>{
     useEffect(()=>{
         document.title="Login";
     },[]);
     const [credentials, setCredentials] = useState();
+    const [artists, setArtists] = useState();
 
     //form handler function
     const handleSubmit=(e)=>{
@@ -24,19 +26,33 @@ const Login=()=>{
 
     //creating function to post data
     const postData=(data)=>{
-        axios.post(`${base_url}/login`,data).then(
-            (response)=>{
-                console.log(response);
-                toast.success("Logged in!",{
-                    position: "bottom-center",
-            });
-    },(error)=>{
-                console.log(error);
-                toast.error("Something went wrong!",{
-                    position: "bottom-center",
-                })
-            }
-        )
+      axios.post(`${base_url}/login`,data).then(
+          (response)=>{
+              console.log(response);
+              toast.success("Logged in!",{
+                  position: "bottom-center",
+          });
+              setArtists(response.data)
+              console.log(artists)
+              if(artists===undefined)
+                  localStorage.setItem('type',1);
+              else {
+                  localStorage.setItem('type', 2);
+                  localStorage.setItem('email', artists.email)
+                  localStorage.setItem('id', artists.artist_id);
+              }
+              if(type==1){
+                <Admin_Options />
+              }
+              else
+                  <Artists_Options />
+          },(error)=>{
+              console.log(error);
+              toast.error("Something went wrong!",{
+                  position: "bottom-center",
+              })
+          }
+      )
 };
 
 // async function loginUser(credentials) {
@@ -62,7 +78,7 @@ const Login=()=>{
 //     });
 //     setToken(token);
 //   }
-
+const type =localStorage.getItem('type')
   return(
     <div> 
      
@@ -94,6 +110,8 @@ const Login=()=>{
                           </div>
                         </div>
                         <input type="submit" className="btn" value="Login"/>
+                        <input type="button" className="btn" value="Explore"/>
+                    <input type="button" className="btn" value="Register"/>
                       </form>
                   </div>
             </div>

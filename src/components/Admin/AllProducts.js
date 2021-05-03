@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import {Button} from "reactstrap";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
 import Product from "./Product";
 
-const AllCategoryProducts=()=>{
+const AllProducts = () => {
 
     useEffect(() => {
-        document.title = "my products";
+        document.title = "all products";
     }, []);
 
     //function to call server;
-    const getAllCategoryProductsFromServer = () => {
-        axios.get(`${base_url}/productsCate/1`).then(
+    const getAllProductsFromServer = () => {
+        axios.get(`${base_url}/products`).then(
             (response) => {
                 console.log(response.data);
                 toast.success("products has been loaded", {
@@ -30,7 +30,7 @@ const AllCategoryProducts=()=>{
     }
 
     useEffect(() => {
-        getAllCategoryProductsFromServer()
+        getAllProductsFromServer()
     }, []);
 
     const [products, setProducts] = useState([])
@@ -54,5 +54,4 @@ const AllCategoryProducts=()=>{
     );
 };
 
-
-export default AllCategoryProducts;
+export default AllProducts;

@@ -4,7 +4,7 @@ import {
     CardTitle, CardSubtitle, Button, Container
 } from 'reactstrap';
 import axios from 'axios';
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 
 const Artist=({ artist,update })=>{

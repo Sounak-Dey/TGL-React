@@ -1,6 +1,6 @@
 import React, {useEffect , useState} from 'react'
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 import {Button, Container, Form, FormGroup} from "reactstrap";
 
@@ -12,10 +12,10 @@ const UpdateProfile=()=>{
 
     //const [artist,setArtist]=useState({});
     const [artist2,setArtist2]=useState({});
-
+    const email = localStorage.getItem('email')
     //function to call server;
     const getArtistFromServer=()=>{
-        axios.get(`${base_url}/artists/hello@aliciasouza.com`).then(
+        axios.get(`${base_url}/artists/${email}`).then(
             (response)=>{
                 console.log(response.data);
                 setArtist2(response.data);

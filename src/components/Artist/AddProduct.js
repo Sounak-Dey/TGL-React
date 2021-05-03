@@ -1,29 +1,44 @@
 import React, {useEffect , useState} from 'react'
 import {Button, Form, FormGroup, Label, Input, FormText, Container} from 'reactstrap';
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
 
-const AddArtist=()=>{
+const AddProduct=()=>{
     useEffect(() => {
-        document.title="add artist";
+        document.title="add product";
+        getCategories();
     },[]);
 
-    const [artist,setArtist]=useState({});
+    //function to call server;
+    const getCategories= () => {
+        axios.get(`${base_url}/categories`).then(
+            (response) => {
+                //console.log(response.data);
+                setCategories(response.data);
+            },
+            (error) => {
+                console.log(error);
+            }
+        )
+    }
+    const id = localStorage.getItem('id');
+    const [product,setProduct]=useState({art_id : id});
+    const [categories,setCategories]=useState({});
 
     //form handler function
     const handleForm=(e)=>{
-        console.log(artist);
-        postDatatoServer(artist);
+        console.log(product);
+        postDatatoServer(product);
         e.preventDefault();
     };
 
     //creating function to post data
     const postDatatoServer= (data) => {
-        axios.post( `${base_url}/artists`,data).then(
+        axios.post( `${base_url}/products`,data).then(
             (response)=>{
                 console.log(response);
-                toast.success("Artist added!",{
+                toast.success("Product added!",{
                     position: "bottom-center",
                 });
 
@@ -45,65 +60,44 @@ const AddArtist=()=>{
                     <input
                         type={"text"}
                         placeholder={"name"}
-                        name={"artistname"}
+                        name={"productname"}
                         id={"name"}
                         onChange={(e)=>{
-                            setArtist({...artist,name: e.target.value})
+                            setProduct({...product,name: e.target.value})
                         }}
                     />
                 </FormGroup>
                 <FormGroup>
-                    <label for="email">Enter email:</label>
+                    <label for="price">Enter Price:</label><br/>
                     <input
                         type={"text"}
-                        placeholder={"email"}
-                        name={"artistemail"}
-                        id={"email"}
+                        placeholder={"price"}
+                        name={"productprice"}
+                        id={"price"}
                         onChange={(e)=>{
-                            setArtist({...artist,email: e.target.value})
+                            setProduct({...product,price: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="website">Enter website:</label>
-                    <input
-                        type={"text"}
-                        placeholder={"website"}
-                        name={"artistwebsite"}
-                        id={"website"}
-                        onChange={(e)=>{
-                            setArtist({...artist,website: e.target.value})
-                        }}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <label for="number">Enter number:</label>
-                    <input
-                        type={"text"}
-                        placeholder={"number"}
-                        name={"artistnumber"}
-                        id={"number"}
-                        onChange={(e)=>{
-                            setArtist({...artist,number: e.target.value})
-                        }}
-                    />
-                </FormGroup>
+                {/*dropdown having all category names as options*/}
+                {/*artist id will go from the session login*/}
+
                 <FormGroup>
                     <label for="description">Enter Description:</label>
                     <input
                         type={"textarea"}
                         placeholder={"description"}
-                        name={"artistdescription"}
-                        id={"about"}
+                        name={"productdescription"}
+                        id={"description"}
                         style={{height:150}}
                         onChange={(e)=>{
-                            setArtist({...artist,about: e.target.value})
+                            setProduct({...product,description: e.target.value})
                         }}
                     />
                 </FormGroup>
 
                 <Container className={"text-center"}>
-                    <Button type="submit" color={"success"}>Add Artist</Button>
+                    <Button type="submit" color={"success"}>Add Product</Button>
                     <Button
                         type="reset"
                         color={"warning ml-3"}>Clear</Button>
@@ -113,4 +107,4 @@ const AddArtist=()=>{
     )
 }
 
-export default AddArtist
+export default AddProduct;
