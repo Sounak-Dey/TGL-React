@@ -1,15 +1,27 @@
 import React, {useEffect , useState} from 'react'
 import {Button, Form, FormGroup, Label, Input, FormText, Container} from 'reactstrap';
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
 
 const AddProduct=()=>{
+
+    const [categories,setCategories]=useState([]);
+
     useEffect(() => {
         document.title="add product";
+        axios.get(`${base_url}/categories`).then(
+            (response) => {
+                const category =response.data;
+                console.log(category);
+                setCategories(category);
+                console.log(categories)
+            })
     },[]);
 
-    const [product,setProduct]=useState({});
+    const id = localStorage.getItem('id');
+    const [product,setProduct]=useState({art_id : id});
+    
 
     //form handler function
     const handleForm=(e)=>{
@@ -65,19 +77,26 @@ const AddProduct=()=>{
                     />
                 </FormGroup>
                 {/*dropdown having all category names as options*/}
-                {/*artist id will go from the session login*/}
-                <FormGroup>
-                    <label for="price">Enter category:</label><br/>
-                    <input
-                        type={"text"}
-                        placeholder={"cateogry"}
-                        name={"productprice"}
-                        id={"cate"}
-                        onChange={(e)=>{
-                            setProduct({...product,cate_id:e.target.value})
-                        }}
-                    />
-                </FormGroup>
+             <FormGroup>
+                        <Input
+                           type={"select"} name="select" id={"category-select"} onChange={(e)=>{
+                               const categoryname = e.target.value;
+                               for(var i=0;i<categories.length;i++){
+                                   var obj = categories[i];
+
+                                   if(obj.name == categoryname){
+                                       setProduct({...product,cate_id:obj.category_id})
+                                   }
+                               }
+                           }}>
+                            <option>[Select one]</option>
+                            {categories.map(person => <option>{person.name}</option>)}
+
+                           </Input>
+
+
+             </FormGroup>
+
                 <FormGroup>
                     <label for="description">Enter Description:</label>
                     <input

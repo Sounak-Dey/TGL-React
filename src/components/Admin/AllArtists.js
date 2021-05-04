@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Artist from "./Artist";
 import {Button} from "reactstrap";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
 

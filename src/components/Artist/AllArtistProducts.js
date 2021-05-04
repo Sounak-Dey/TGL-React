@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {Button} from "reactstrap";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
-import Product from "./Product";
+import Product from "../Admin/Product";
 
 const AllArtistProducts=()=>{
 
@@ -11,9 +11,11 @@ const AllArtistProducts=()=>{
             document.title = "my products";
         }, []);
 
+        const art_id = localStorage.getItem('id');
+
         //function to call server;
         const getAllArtistsProductsFromServer = () => {
-            axios.get(`${base_url}/productsArt/1`).then(
+            axios.get(`${base_url}/productsArt/${art_id}`).then(
                 (response) => {
                     console.log(response.data);
                     toast.success("products has been loaded", {

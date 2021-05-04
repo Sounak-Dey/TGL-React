@@ -4,7 +4,7 @@ import {
     CardTitle, CardSubtitle, Button, Container
 } from 'reactstrap';
 import axios from 'axios';
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 
 const Artist=({ artist,update })=>{
@@ -70,7 +70,6 @@ const Artist=({ artist,update })=>{
             <CardText>{artist.about}</CardText>
             <Container>
                 <Button color={"primary"}>Select</Button>
-                <Button color={"success"}>Update</Button>
                 <Button
                     color={"danger"}
                     onClick={()=>{

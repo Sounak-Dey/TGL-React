@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Category from "./Category";
 import {Button} from "reactstrap";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
 
-const AllCategories = () => {
+const AllCategory = () => {
 
     useEffect(() => {
         document.title = "all categories";
@@ -54,4 +54,4 @@ const AllCategories = () => {
     );
 };
 
-export default AllCategories;
+export default AllCategory;

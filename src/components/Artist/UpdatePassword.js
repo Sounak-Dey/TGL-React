@@ -1,6 +1,6 @@
 import React, {useEffect , useState} from 'react'
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 import {Button, Container, Form, FormGroup} from "reactstrap";
 
@@ -9,7 +9,8 @@ const UpdatePassword=()=>{
         document.title="Update Password";
     },[]);
 
-    const [user,setUser]=useState({email:"hello@aliciasouza.com"});
+    const email2 = localStorage.getItem('email');
+    const [user,setUser]=useState({email:email2});
 
     //form handler
     const handleForm=(e)=>{
@@ -26,9 +27,16 @@ const UpdatePassword=()=>{
                     toast.success("Updated!",{
                     position: "bottom-center",
                 });
-                else toast.error("Something went wrong!",{
+                else if(response.data == "Old password does not match"){toast.error("Old password does not match!",{
                     position: "bottom-center",
-                })
+                })}
+                else if(response.data == " Confirm password does not match"){toast.error(" Confirm password does not match",{
+                    position: "bottom-center",
+                })}
+               
+                else {toast.error("Something went wrong!",{
+                    position: "bottom-center",
+                })}
             },(error)=>{
                 console.log(error);
             }

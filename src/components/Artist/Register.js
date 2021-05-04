@@ -1,7 +1,7 @@
 import React, {useEffect , useState} from 'react'
 import {Button, Form, FormGroup, Label, Input, FormText, Container} from 'reactstrap';
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
 
 const Register=()=>{
@@ -23,9 +23,13 @@ const Register=()=>{
         axios.post( `${base_url}/register`,data).then(
             (response)=>{
                 console.log(response);
+                if(response.data == "ok"){
                 toast.success("Artist added!",{
                     position: "bottom-center",
-                });
+                });}
+                else{
+                    toast.error("USERNAME ALREADY EXISTS");
+                }
 
             },(error)=>{
                 console.log(error);

@@ -4,7 +4,7 @@ import {
     CardTitle, CardSubtitle, Button, Container
 } from 'reactstrap';
 import axios from "axios";
-import base_url from "../api/bootapi";
+import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 
 const Product=({ product,update })=>{
@@ -32,7 +32,6 @@ const Product=({ product,update })=>{
                 <CardText>{product.description}</CardText>
                 <Container>
                     <Button color={"primary"}>Select</Button>
-                    <Button color={"success"}>Update</Button>
                     <Button color={"danger"}
                             onClick={()=>{
                                 deleteProduct(product.product_id);
