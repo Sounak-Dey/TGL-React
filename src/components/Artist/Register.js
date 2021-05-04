@@ -23,9 +23,13 @@ const Register=()=>{
         axios.post( `${base_url}/register`,data).then(
             (response)=>{
                 console.log(response);
+                if(response.data == "ok"){
                 toast.success("Artist added!",{
                     position: "bottom-center",
-                });
+                });}
+                else{
+                    toast.error("USERNAME ALREADY EXISTS");
+                }
 
             },(error)=>{
                 console.log(error);
