@@ -21,12 +21,17 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register";
 import AddArtist from "./components/AddArtist";
 import UpdatePassword from "./components/UpdatePassword";
+import Fn from './components/TestImage.js';
+import Func from './components/testfn';
 
 function App() {
 
   return(
 
      <div>
+         {/* <Fn/> */}
+         {/* <Func /> */}
+
          <Router>
          <ToastContainer />
          <Container>

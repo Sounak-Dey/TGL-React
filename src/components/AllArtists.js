@@ -11,6 +11,8 @@ const AllArtists = () => {
         document.title="all artists";
     },[]);
 
+    
+
     //function to call server;
     const getAllArtistsFromServer=()=>{
         axios.get(`${base_url}/artists`).then(
