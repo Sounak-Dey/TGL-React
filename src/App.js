@@ -18,9 +18,9 @@ import UpdatePassword from "./components/Artist/UpdatePassword";
 import UpdateProfile from "./components/Artist/UpdateProfile";
 import Register from "./components/Artist/Register";
 import Login from "./components/Login/Login";
-import Register from "./components/Register";
-import AddArtist from "./components/AddArtist";
-import UpdatePassword from "./components/UpdatePassword";
+
+
+
 import Fn from './components/TestImage.js';
 import Func from './components/testfn';
 import Artists_Options from "./components/Artist/Artists-Options"
