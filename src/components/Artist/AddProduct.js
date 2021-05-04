@@ -5,26 +5,23 @@ import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
 
 const AddProduct=()=>{
+
+    const [categories,setCategories]=useState([]);
+
     useEffect(() => {
         document.title="add product";
-        getCategories();
-    },[]);
-
-    //function to call server;
-    const getCategories= () => {
         axios.get(`${base_url}/categories`).then(
             (response) => {
-                //console.log(response.data);
-                setCategories(response.data);
-            },
-            (error) => {
-                console.log(error);
-            }
-        )
-    }
+                const category =response.data;
+                console.log(category);
+                setCategories(category);
+                console.log(categories)
+            })
+    },[]);
+
     const id = localStorage.getItem('id');
     const [product,setProduct]=useState({art_id : id});
-    const [categories,setCategories]=useState({});
+    
 
     //form handler function
     const handleForm=(e)=>{
@@ -80,7 +77,25 @@ const AddProduct=()=>{
                     />
                 </FormGroup>
                 {/*dropdown having all category names as options*/}
-                {/*artist id will go from the session login*/}
+             <FormGroup>
+                        <Input
+                           type={"select"} name="select" id={"category-select"} onChange={(e)=>{
+                               const categoryname = e.target.value;
+                               for(var i=0;i<categories.length;i++){
+                                   var obj = categories[i];
+
+                                   if(obj.name == categoryname){
+                                       setProduct({...product,cate_id:obj.category_id})
+                                   }
+                               }
+                           }}>
+                            <option>[Select one]</option>
+                            {categories.map(person => <option>{person.name}</option>)}
+
+                           </Input>
+
+
+             </FormGroup>
 
                 <FormGroup>
                     <label for="description">Enter Description:</label>

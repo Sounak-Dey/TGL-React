@@ -9,19 +9,21 @@ import Admin_Options from "../Admin/Admin-Options";
 import Artists_Options from "../Artist/Artists-Options";
 import Register from "../Artist/Register";
 import Explore from "../Users/Explore";
+import { Link } from 'react-router-dom';
 
 const Login=()=>{
     useEffect(()=>{
         document.title="Login";
+
     },[]);
     const [credentials, setCredentials] = useState();
-    const [artists, setArtists] = useState();
 
     //form handler function
     const handleSubmit=(e)=>{
         console.log(credentials);
         postData(credentials);
         e.preventDefault();
+
     };
 
     //creating function to post data
@@ -29,23 +31,19 @@ const Login=()=>{
       axios.post(`${base_url}/login`,data).then(
           (response)=>{
               console.log(response);
+              console.log(response.data);
+
               toast.success("Logged in!",{
                   position: "bottom-center",
-          });
-              setArtists(response.data)
-              console.log(artists)
-              if(artists===undefined)
+          });  
+              if(response.data === ""){
                   localStorage.setItem('type',1);
+              }
               else {
                   localStorage.setItem('type', 2);
-                  localStorage.setItem('email', artists.email)
-                  localStorage.setItem('id', artists.artist_id);
+                  localStorage.setItem('email', response.data.email)
+                  localStorage.setItem('id', response.data.artist_id);
               }
-              if(type==1){
-                <Admin_Options />
-              }
-              else
-                  <Artists_Options />
           },(error)=>{
               console.log(error);
               toast.error("Something went wrong!",{
@@ -55,29 +53,6 @@ const Login=()=>{
       )
 };
 
-// async function loginUser(credentials) {
-//  return fetch(`${base_url}/login`, {
-//    method: 'POST',
-//    headers: {
-//      'Content-Type': 'application/json'
-//    },
-//    body: JSON.stringify(credentials)
-//  })
-//    .then(data => data.json())
-// }
-//
-// export default function Login({ setToken }) {
-//   const [username, setUserName] = useState();
-//   const [password, setPassword] = useState();
-//
-//   const handleSubmit = async e => {
-//     e.preventDefault();
-//     const token = await loginUser({
-//       username,
-//       password
-//     });
-//     setToken(token);
-//   }
 const type =localStorage.getItem('type')
   return(
     <div> 

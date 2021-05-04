@@ -21,7 +21,6 @@ import Login from "./components/Login/Login";
 import Artists_Options from "./components/Artist/Artists-Options"
 import AddProduct from './components/Artist/AddProduct';
 
-
 function App() {
 
   return(
