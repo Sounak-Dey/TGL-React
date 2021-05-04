@@ -31,7 +31,7 @@ const Admin_Options=(props)=>{
             <ListGroup>
                 <Link className="list-group-item list-group-item-action" tag="a" to="/Admin-Options/all-products" action>Products</Link>
             </ListGroup>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/home" action>Log Out</Link>
+            <Link className="list-group-item list-group-item-action" tag="a" to="/Login" action>Log Out</Link>
         </ListGroup>
         </div>
     )

@@ -58,9 +58,6 @@ const MyProfile=()=>{
                         <CardTitle className="font-weight-bold">{artist.name} {artist.artist_id}</CardTitle>
                         <CardSubtitle>{artist.email} <br/>{artist.website}<br/> {artist.number}</CardSubtitle>
                         <CardText>{artist.about}</CardText>
-                        <Container>
-                            <Button color={"success"}>Update</Button>
-                        </Container>
                     </CardBody>
                 </Card>
             </div>

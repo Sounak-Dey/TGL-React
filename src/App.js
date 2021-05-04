@@ -20,6 +20,8 @@ import Register from "./components/Artist/Register";
 import Login from "./components/Login/Login";
 import Artists_Options from "./components/Artist/Artists-Options"
 import AddProduct from './components/Artist/AddProduct';
+import AddCategoryRequest from './components/Users/AddCategoryRequest';
+import User_Options from './components/Users/User-Options';
 
 function App() {
 
@@ -40,6 +42,8 @@ function App() {
                      <Route path={'/Artists-Options'} component={Artists_Options}/>
                      <Route path={'/Explore'} component={Explore} exact/>
                      <Route path={'/Portfolio'} component={Portfolio} exact/>
+                     <Route path={'/User-Options'} component={User_Options} exact/>
+
                  </Col>
                  <Col md={8}>
                      <Route path={'/Admin-Options/all-artists'} component={AllArtists} exact/>
@@ -61,6 +65,7 @@ function App() {
                      <Route path={'/User-Options/all-artist-products'} component={AllArtistProducts} exact/>
                      <Route path={'/User-Options/all-category-products'} component={AllCategoryProducts} exact/>
                      <Route path={'/User-Options/artist-profile'} component={MyProfile} exact/>
+                     <Route path={'/User-Options/add-category-request'} component={AddCategoryRequest} exact/>
                     
                  </Col>
              </Row>

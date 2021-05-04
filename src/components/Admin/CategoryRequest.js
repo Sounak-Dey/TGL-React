@@ -3,8 +3,45 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Container
 } from 'reactstrap';
+import axios from "axios";
+import base_url from "../../api/bootapi";
+import {toast} from "react-toastify";
+import {useState} from 'react';
 
-const CategoryRequest=({ categoryRequest })=>{
+const CategoryRequest=({ categoryRequest,update })=>{
+
+    const deleteRequest=(request_id)=>{
+        axios.delete(`${base_url}/crequest/${request_id}`).then(
+            (response)=>{
+                toast.success("request deleted",{position: "bottom-center" });
+                update(request_id);
+            },
+            (error)=>{
+                toast.error("Something went wrong!",{position: "bottom-center" });
+            }
+        )
+    };
+
+   // const [category,setCategory] = useState({});
+
+    const addCategory= (data) => {
+        axios.post( `${base_url}/categories`,data).then(
+            (response)=>{
+                console.log(response);
+                toast.success("Category added!",{
+                    position: "bottom-center",
+                });
+                update(data.request_id);
+
+            },(error)=>{
+                console.log(error);
+                toast.error("Something went wrong!",{
+                    position: "bottom-center",
+                })
+            }
+        )
+    };
+
 
     return(
         <Card>
@@ -13,8 +50,13 @@ const CategoryRequest=({ categoryRequest })=>{
                 <CardTitle className="font-weight-bold">{categoryRequest.name}</CardTitle>
                 <CardText>{categoryRequest.about}</CardText>
                 <Container>
-                    <Button color={"success"}>Approve</Button>
-                    <Button color={"danger"}>Deny</Button>
+                    <Button color={"success"} onClick={()=>{
+                        addCategory(categoryRequest);
+                        deleteRequest(categoryRequest.request_id);
+                    }}>Approve</Button>
+                    <Button color={"danger"} onClick={()=>{
+                                deleteRequest(categoryRequest.request_id);
+                            }}>Deny</Button>
                 </Container>
             </CardBody>
         </Card>

@@ -34,7 +34,11 @@ const AllCategoryRequests = () => {
     },[]);
 
     const [categoryRequests,setCategoryRequests] = useState([
-    ])
+    ]);
+
+    const UpdateRequests=(request_id)=>{
+        setCategoryRequests(categoryRequests.filter((r)=> r.request_id !== request_id));
+    };
 
     return(
         <div>
@@ -43,7 +47,8 @@ const AllCategoryRequests = () => {
             <p>list of requests are given:</p>
             {
                 categoryRequests.length>0
-                    ? categoryRequests.map((item)=> <CategoryRequest key={item.name} categoryRequest={item}/>)
+                    ? categoryRequests.map((item)=> <CategoryRequest key={item.name} categoryRequest={item}
+                    update={UpdateRequests}/>)
                     : "No requests"
             }
 

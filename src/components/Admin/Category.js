@@ -20,6 +20,9 @@ const Category=({ category,update })=>{
             }
         )
     };
+
+
+    
     return(
         <Card>
             <CardImg top width="100%" src="./images/a1.jpeg" alt="Card image cap" />
@@ -28,7 +31,6 @@ const Category=({ category,update })=>{
                 <CardText>{category.about}</CardText>
                 <Container>
                     <Button color={"primary"}>Select</Button>
-                    <Button color={"success"}>Update</Button>
                     <Button color={"danger"}
                             onClick={()=>{
                                 deleteCategory(category.category_id);

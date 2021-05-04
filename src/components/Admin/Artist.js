@@ -29,7 +29,6 @@ const Artist=({ artist,update })=>{
             <CardText>{artist.about}</CardText>
             <Container>
                 <Button color={"primary"}>Select</Button>
-                <Button color={"success"}>Update</Button>
                 <Button
                     color={"danger"}
                     onClick={()=>{

@@ -124,9 +124,6 @@ const UpdateProfile=()=>{
 
                 <Container className={"text-center"}>
                     <Button type="submit" color={"success"}>Update</Button>
-                    <Button
-                        type="reset"
-                        color={"warning ml-3"}>Clear</Button>
                 </Container>
             </Form>
         </div>

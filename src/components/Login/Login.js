@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 const Login=()=>{
     useEffect(()=>{
         document.title="Login";
-
+        localStorage.clear();
     },[]);
     const [credentials, setCredentials] = useState();
 
