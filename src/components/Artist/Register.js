@@ -10,7 +10,7 @@ const Register=()=>{
     },[]);
 
     const [artist,setArtist]=useState({});
-    
+    var [photo, setPhoto] = useState(null);    
 
     //form handler function
     const handleForm=(e)=>{
@@ -19,39 +19,38 @@ const Register=()=>{
         e.preventDefault();
     };
 
-    // image upload
-    const uploadImage = () => {
-        if (this.state.document !== null) {
-            
-            const formData = new FormData();
-            formData.append('file', this.state.document);
-            formData.append('uploader', this.props.id);
-            axios.post(`${base_url}/artists/upload`, formData).then(response => {
-                if (response.data) {
-                    this.setState({
-                        ...this.state,
-                        document_id: response.data.id,
-                    })
-                    // this.savingDiagramInstance();
-                } else {
-                    
-                }
-            }).catch(error => {
-                console.log("Error", error);
-            })
 
-        }
+    // image handler
+    const uploadImage = (event) => {
+
+        setPhoto(event.target.files[0]);
+        console.log(photo);
+
     }
+        
+    
 
-    //creating function to post data
+    //creating function to post all data
     const postDatatoServer= (data) => {
-        axios.post( `${base_url}/register`,data).then(
-            (response)=>{
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('about', data['about']);
+        formData.append('email', data['email']);
+        formData.append('name', data['name']);
+        formData.append('password', data['password']);
+        formData.append('number', data['number']);
+        formData.append('website', data['website']);
+        axios.post( `${base_url}/register`,formData).then(
+            response => {
                 console.log(response);
+
                 if(response.data == "ok"){
-                toast.success("Artist added!",{
-                    position: "bottom-center",
-                });}
+
+                    toast.success("Artist added!",{
+                        position: "bottom-center",
+                        }
+                    );
+                }
                 else{
                     toast.error("USERNAME ALREADY EXISTS");
                 }
@@ -70,14 +69,12 @@ const Register=()=>{
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
                 <FormGroup>
-                    <label for="photo">Set Image</label>
+                    <label for="photo">Set Image: </label>
                     <input 
                         type='file'  
                         id="file-upload"   
                         accept="image/png, image/jpeg" 
-                        onChange={(e)=>{
-                            setArtist({...artist,photo: e.target.value})
-                        }}
+                        onChange = {uploadImage}
                     />
                 </FormGroup>
                 <FormGroup>

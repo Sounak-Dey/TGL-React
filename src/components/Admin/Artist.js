@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 
 const Artist=({ artist, update }) => {
 
-    const [image, setimage] = useState('');
+    const [image, setImage] = useState('');
     
     useEffect(() => {
         viewUploadedFile(artist.artist_id)
@@ -17,7 +17,7 @@ const Artist=({ artist, update }) => {
             axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(
                 response => {
                 if (response.data) {
-                    setimage(URL.createObjectURL(response.data))
+                    setImage(URL.createObjectURL(response.data))
                 } else {
 
                 }
