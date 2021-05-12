@@ -28,10 +28,10 @@ const Register=()=>{
 
     }
         
-    
 
     //creating function to post all data
     const postDatatoServer= (data) => {
+        
         const formData = new FormData();
         formData.append('file', photo);
         formData.append('about', data['about']);
@@ -40,6 +40,7 @@ const Register=()=>{
         formData.append('password', data['password']);
         formData.append('number', data['number']);
         formData.append('website', data['website']);
+
         axios.post( `${base_url}/register`,formData).then(
             response => {
                 console.log(response);
