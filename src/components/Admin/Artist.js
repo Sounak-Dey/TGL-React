@@ -14,7 +14,8 @@ const Artist=({ artist, update }) => {
 
     const viewUploadedFile = (artist_id ) => {
         if (artist_id !== null) {
-            axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(response => {
+            axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(
+                response => {
                 if (response.data) {
                     setimage(URL.createObjectURL(response.data))
                 } else {

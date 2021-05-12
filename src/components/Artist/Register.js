@@ -10,6 +10,7 @@ const Register=()=>{
     },[]);
 
     const [artist,setArtist]=useState({});
+    
 
     //form handler function
     const handleForm=(e)=>{
@@ -17,6 +18,30 @@ const Register=()=>{
         postDatatoServer(artist);
         e.preventDefault();
     };
+
+    // image upload
+    const uploadImage = () => {
+        if (this.state.document !== null) {
+            
+            const formData = new FormData();
+            formData.append('file', this.state.document);
+            formData.append('uploader', this.props.id);
+            axios.post(`${base_url}/artists/upload`, formData).then(response => {
+                if (response.data) {
+                    this.setState({
+                        ...this.state,
+                        document_id: response.data.id,
+                    })
+                    // this.savingDiagramInstance();
+                } else {
+                    
+                }
+            }).catch(error => {
+                console.log("Error", error);
+            })
+
+        }
+    }
 
     //creating function to post data
     const postDatatoServer= (data) => {
@@ -44,6 +69,17 @@ const Register=()=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
+                <FormGroup>
+                    <label for="photo">Set Image</label>
+                    <input 
+                        type='file'  
+                        id="file-upload"   
+                        accept="image/png, image/jpeg" 
+                        onChange={(e)=>{
+                            setArtist({...artist,photo: e.target.value})
+                        }}
+                    />
+                </FormGroup>
                 <FormGroup>
                     <label for="username">Enter Name:</label><br/>
                     <input
@@ -117,6 +153,7 @@ const Register=()=>{
                         }}
                     />
                 </FormGroup>
+                
                 {/*photo left*/}
 
                 <Container className={"text-center"}>
