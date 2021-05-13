@@ -9,8 +9,6 @@ const User_Options=()=>{
             <Link className="list-group-item list-group-item-action" tag="a" to="/User-Options/all-products" action>All Product</Link>
             <Link className="list-group-item list-group-item-action" tag="a" to="/User-Options/all-categories" action>all categories</Link>
             <Link className="list-group-item list-group-item-action" tag="a" to="/User-Options/add-category-request" action>Add category request</Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/User-Options/update-password" action>Change Password</Link>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/Login" action>Log Out</Link>
         </ListGroup>
     )
 }
