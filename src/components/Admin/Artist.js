@@ -46,7 +46,7 @@ const Artist=({ artist, update }) => {
                 <CardSubtitle>{artist.email} <br/>{artist.website}<br/> {artist.number}</CardSubtitle>
                 <CardText>{artist.about}</CardText>
                 <Container>
-                    <Button color={"primary"}>Select</Button>
+                   
                     <Button
                         color={"danger"}
                         onClick={()=>{
