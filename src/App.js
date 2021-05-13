@@ -11,22 +11,19 @@ import AllCategory from "./components/Admin/AllCategory";
 import AllCategoryRequests from "./components/Admin/AllCategoryRequests";
 import MyProfile from "./components/Artist/MyProfile";
 import AllArtistProducts from "./components/Artist/AllArtistProducts";
-import AllCategoryProducts from "./components/Users/AllCategoryProducts";
 import Explore from "./components/Users/Explore";
-import Portfolio from "./components/Users/Portfolio";
 import UpdatePassword from "./components/Artist/UpdatePassword";
 import UpdateProfile from "./components/Artist/UpdateProfile";
 import Register from "./components/Artist/Register";
 import Login from "./components/Login/Login";
-
-
-
 import Fn from './components/TestImage.js';
 import Func from './components/testfn';
 import Artists_Options from "./components/Artist/Artists-Options"
 import AddProduct from './components/Artist/AddProduct';
 import AddCategoryRequest from './components/Users/AddCategoryRequest';
-import User_Options from './components/Users/User-Options';
+import AllArt from './components/Users/AllArt';
+import AllCat from './components/Users/AllCat'
+import AllProd from './components/Users/AllProd';
 
 function App() {
 
@@ -37,20 +34,19 @@ function App() {
          {/* <Func /> */}
 
          <Router>
-         <ToastContainer />
-         <Container>
-             {/*<Route exact path='/' component={ManagerDashboard}>*/}
-             {/*</Route>*/}
+    
+    
+             <Route exact path='/' component={Login}/>
+            
              <Route exact path="/Login" component={Login}/>
              <Route exact path='/Register' component={Register}/>
+             <Route exact path='/Explore' component={Explore}/>
 
              <Row>
                  <Col md={4}>
                      <Route path={'/Admin-Options'} component={Admin_Options}/>
                      <Route path={'/Artists-Options'} component={Artists_Options}/>
-                     <Route path={'/Explore'} component={Explore} exact/>
-                     <Route path={'/Portfolio'} component={Portfolio} exact/>
-                     <Route path={'/User-Options'} component={User_Options} exact/>
+                    
 
                  </Col>
                  <Col md={8}>
@@ -67,17 +63,14 @@ function App() {
                      <Route path={'/Artists-Options/update-password'} component={UpdatePassword} exact/>
                      <Route path={'/Artists-Options/add-product'} component={AddProduct} exact/>
 
-                     <Route path={'/User-Options/all-artists'} component={AllArtists} exact/>
-                     <Route path={'/User-Options/all-products'} component={AllProducts} exact/>
-                     <Route path={'/User-Options/all-categories'} component={AllCategory} exact/>
-                     <Route path={'/User-Options/all-artist-products'} component={AllArtistProducts} exact/>
-                     <Route path={'/User-Options/all-category-products'} component={AllCategoryProducts} exact/>
-                     <Route path={'/User-Options/artist-profile'} component={MyProfile} exact/>
-                     <Route path={'/User-Options/add-category-request'} component={AddCategoryRequest} exact/>
+                     <Route path={'/all-artists'} component={AllArt} exact/>
+                     <Route path={'/all-products'} component={AllProd} exact/>
+                     <Route path={'/all-categories'} component={AllCat} exact/>
+                     <Route path={'/add-category-request'} component={AddCategoryRequest} exact/>
                     
                  </Col>
              </Row>
-         </Container>
+    
          </Router>
      </div>
 

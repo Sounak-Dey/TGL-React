@@ -51,7 +51,7 @@ const Category=({ category,update })=>{
                 <CardTitle className="font-weight-bold">{category.name}</CardTitle>
                 <CardText>{category.about}</CardText>
                 <Container>
-                    <Button color={"primary"}>Select</Button>
+                    
                     <Button color={"danger"}
                             onClick={()=>{
                                 deleteCategory(category.category_id);

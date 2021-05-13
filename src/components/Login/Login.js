@@ -5,18 +5,39 @@ import wavei from './wave.png'
 import gb from './gift-box.png'
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
-import Admin_Options from "../Admin/Admin-Options";
-import Artists_Options from "../Artist/Artists-Options";
-import Register from "../Artist/Register";
-import Explore from "../Users/Explore";
-import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import {Button} from 'reactstrap';
 
-
-const Login=()=>{
+const Login=(props)=>{
     useEffect(()=>{
         document.title="Login";
         localStorage.clear();
     },[]);
+
+    const routeChange=()=> {
+      var type = localStorage.getItem("type");
+      let path = '';
+      if(type == 1)
+        path = '/Admin-Options';
+      else
+        path = '/Artists-Options';
+
+      props.history.push(path);
+    }
+
+    const explore=()=>
+  {
+    let path = '/Explore';
+    props.history.push(path)
+  }
+
+   const register=()=>
+   {
+     let path = '/Register';
+     props.history.push(path);
+   }
+
+
     const [credentials, setCredentials] = useState();
     const [artist,setArtist] = useState({});
     //form handler function
@@ -41,7 +62,9 @@ const Login=()=>{
                   localStorage.setItem('type',1);
                   toast.success("Admin Logged in!",{
                     position: "bottom-center",
-            });}
+            });
+            routeChange();
+          }
             else if(response.data.type === 2) {
                   localStorage.setItem('type', 2);
                   localStorage.setItem('email', response.data.username);
@@ -49,6 +72,7 @@ const Login=()=>{
                   toast.success("Artist Logged in!",{
                     position: "bottom-center",
             });
+            routeChange();
                  // localStorage.setItem('id', response.data.artist_id);
                 //  var email = localStorage.getItem("username")
                 //  axios.get( `${base_url}/artists/${email}`).then(
@@ -73,8 +97,6 @@ const Login=()=>{
           }
       )
 };
-
-const type =localStorage.getItem('type')
   return(
     <div> 
      
@@ -106,8 +128,8 @@ const type =localStorage.getItem('type')
                           </div>
                         </div>
                         <input type="submit" className="btn" value="Login"/>
-                        <input type="button" className="btn" value="Explore"/>
-                    <input type="button" className="btn" value="Register"/>
+                        <Button onClick={explore}>Explore</Button>
+                        <Button onClick={register}>Register</Button>
                       </form>
                   </div>
             </div>
@@ -139,4 +161,4 @@ const type =localStorage.getItem('type')
 //   setCredentials: PropTypes.func.isRequired
 // };
 
-export default Login;
+export default withRouter(Login);

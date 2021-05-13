@@ -3,13 +3,18 @@ import {Button, Form, FormGroup, Label, Input, FormText, Container} from 'reacts
 import axios from "axios";
 import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
+import { withRouter } from "react-router-dom";
  
- 
- const AddCategoryRequest=()=>{
+ const AddCategoryRequest=(props)=>{
  
     useEffect(() => {
         document.title="add category Request";
     },[]);
+
+    const back=()=>{
+        let path='/Explore';
+        props.history.push(path);
+    }
 
     const [categoryRequest,setCategoryRequest]=useState({});
 
@@ -100,10 +105,11 @@ import {toast} from 'react-toastify';
                     <Button
                         type="reset"
                         color={"warning ml-3"}>Clear</Button>
+                        <Button onClick={back}>Back</Button>
                 </Container>
             </Form>
         </div>
     )
     }
 
-export default AddCategoryRequest;
+export default withRouter(AddCategoryRequest);

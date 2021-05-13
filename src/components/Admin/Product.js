@@ -52,7 +52,6 @@ const Product=({ product,update })=>{
                 </CardSubtitle>
                 <CardText>{product.description}</CardText>
                 <Container>
-                    <Button color={"primary"}>Select</Button>
                     <Button color={"danger"}
                             onClick={()=>{
                                 deleteProduct(product.product_id);

@@ -3,8 +3,9 @@ import {Button, Form, FormGroup, Label, Input, FormText, Container} from 'reacts
 import axios from "axios";
 import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
+import { withRouter } from "react-router-dom";
 
-const Register=()=>{
+const Register=(props)=>{
     useEffect(() => {
         document.title="register";
     },[]);
@@ -19,6 +20,10 @@ const Register=()=>{
         e.preventDefault();
     };
 
+    const back=()=>{
+        let path='/';
+        props.history.push(path);
+    }
 
     // image handler
     const uploadImage = (event) => {
@@ -159,10 +164,11 @@ const Register=()=>{
                     <Button
                         type="reset"
                         color={"warning ml-3"}>Clear</Button>
+                    <Button onClick={back}>Back</Button>
                 </Container>
             </Form>
         </div>
     )
 }
 
-export default Register;
+export default withRouter(Register);

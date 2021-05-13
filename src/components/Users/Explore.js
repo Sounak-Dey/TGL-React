@@ -1,34 +1,64 @@
 import React, {Component, useEffect} from "react";
 import {Row, Col, Button} from "reactstrap";
-import AllCategory from "../Admin/AllCategory";
-import AllArtists from "../Admin/AllArtists";
-import AllProducts from "../Admin/AllProducts";
+import { withRouter } from "react-router-dom";
 
-const Explore=()=>{
+const Explore=(props)=>{
 
     useEffect(() => {
         document.title = "Explore";
     }, []);
 
+    const back=()=>{
+        let path='/';
+        props.history.push(path);
+    }
+
+    const artists=()=>{
+        let path='/all-artists';
+        props.history.push(path);
+    }
+
+
+    const categories=()=>{
+        let path='/All-Categories';
+        props.history.push(path);
+    }
+
+    const products=()=>{
+        let path='/All-Products';
+        props.history.push(path);
+    }
+
+    const cr=()=>{
+        let path='/add-category-request';
+        props.history.push(path);
+    }
+
+
     return(
         <div>
-             hi from explore
+           
             <Row>
                 <Col md={3}>
                        
-                    <Button color={"primary"}>all categories</Button>
+                    <Button color={"primary"} onClick={categories}>all categories</Button>
                 </Col>
                 <Col md={3}>
-                    artists
-                    <Button color={"primary"}>all artists</Button>
+
+                    <Button color={"primary"} onClick={artists}>all artists</Button>
                 </Col>
                 <Col ms={4}>
-                    All products
-                    <Button color={"primary"}>all products</Button>
+                
+                    <Button color={"primary"} onClick={products}>all products</Button>
                 </Col>
+                <Col ms={4}>
+                
+                    <Button color={"primary"} onClick={cr}>Request for a category</Button>
+                </Col>
+                <Button onClick={back}>Back</Button>
             </Row>
         </div>
     )
 }
 
-export default Explore;
+export default withRouter(Explore);
