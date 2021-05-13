@@ -7,18 +7,44 @@ import {toast} from 'react-toastify';
 
 const MyProfile=()=>{
 
+        const [image, setImage] = useState('');
+
         useEffect(() => {
             document.title="My profile";
         },[]);
 
+        useEffect(() => {
+            fetchArtistImage(artist_id)
+        },[]);
+
         const email = localStorage.getItem('email');
         const [artist,setArtist] = useState({});
+        const artist_id = localStorage.getItem('id');
+
+        //fetch artist image
+        const fetchArtistImage = (artist_id ) => {
+            if (artist_id !== null) {
+                axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(
+                    response => {
+                    if (response.data) {
+                        setImage(URL.createObjectURL(response.data))
+                    } else {
+    
+                    }
+                }).catch(error => {
+                    console.log("Error", error);
+                })
+            }
+        }
+
+
         //function to call server;
         const getArtistFromServer=()=>{
             axios.get(`${base_url}/artists/${email}`).then(
                 (response)=>{
                     console.log(response.data);
                     setArtist(response.data);
+                    localStorage.setItem('id',response.data.artist_id);
                     toast.success("artist is been loaded",{
                         position: "bottom-center",
                     });
@@ -31,7 +57,7 @@ const MyProfile=()=>{
                 }
             )
         }
-
+        
         useEffect(() => {
             getArtistFromServer()
         },[]);
@@ -53,7 +79,7 @@ const MyProfile=()=>{
                 {/*}*/}
 
                 <Card>
-                    <CardImg top width="100%" src="./images/a3.jpg" alt="Card image cap" />
+                    <CardImg top width="100%" src = {image} alt="Card image cap" />
                     <CardBody className="text-center">
                         <CardTitle className="font-weight-bold">{artist.name} {artist.artist_id}</CardTitle>
                         <CardSubtitle>{artist.email} <br/>{artist.website}<br/> {artist.number}</CardSubtitle>

@@ -25,9 +25,26 @@ import { withRouter } from "react-router-dom";
         e.preventDefault();
     };
 
+    var [photo, setPhoto] = useState(null);
+
+    // image handler
+    const uploadImage = (event) => {
+
+        setPhoto(event.target.files[0]);
+        console.log(photo);
+
+    }
+
     //creating function to post data
     const postDatatoServer= (data) => {
-        axios.post( `${base_url}/crequests`,data).then(
+
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('about', data['about']);
+        formData.append('name', data['name']);
+
+
+        axios.post( `${base_url}/crequests`,formData).then(
             (response)=>{
                 console.log(response);
                 toast.success("Category Request added!",{
@@ -48,6 +65,15 @@ import { withRouter } from "react-router-dom";
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
+                <FormGroup>
+                    <label for="photo">Set Image: </label>
+                    <input 
+                        type='file'  
+                        id="file-upload"   
+                        accept="image/png, image/jpeg" 
+                        onChange = {uploadImage}
+                    />
+                </FormGroup>
                 <FormGroup>
                     <label for="username">Enter Name:</label><br/>
                     <input

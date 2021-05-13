@@ -68,6 +68,7 @@ const Login=(props)=>{
             else if(response.data.type === 2) {
                   localStorage.setItem('type', 2);
                   localStorage.setItem('email', response.data.username);
+                  // localStorage.setItem('id',response.data.artist_id);
                   toast.success("Artist Logged in!",{
                     position: "bottom-center",
             });

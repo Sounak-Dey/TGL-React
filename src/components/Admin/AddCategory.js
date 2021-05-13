@@ -5,6 +5,7 @@ import base_url from "../../api/bootapi";
 import {toast} from 'react-toastify';
 
 const AddCategory=()=>{
+
     useEffect(() => {
         document.title="add categories";
     },[]);
@@ -18,9 +19,30 @@ const AddCategory=()=>{
         e.preventDefault();
     };
 
+    var [photo, setPhoto] = useState(null);
+
+    // image handler
+    const uploadImage = (event) => {
+
+        setPhoto(event.target.files[0]);
+        console.log(photo);
+
+    }
+
+    // about: "asdasd"
+    // name: "mkbhd"
+
+
     //creating function to post data
     const postDatatoServer= (data) => {
-        axios.post( `${base_url}/categories`,data).then(
+
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('about', data['about']);
+        formData.append('name', data['name']);
+
+
+        axios.post( `${base_url}/categories`,formData).then(
             (response)=>{
                 console.log(response);
                 toast.success("Category added!",{
@@ -40,6 +62,15 @@ const AddCategory=()=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
+                <FormGroup>
+                    <label for="photo">Set Image: </label>
+                    <input 
+                        type='file'  
+                        id="file-upload"   
+                        accept="image/png, image/jpeg" 
+                        onChange = {uploadImage}
+                    />
+                </FormGroup>
                 <FormGroup>
                     <label for="username">Enter Name:</label><br/>
                     <input

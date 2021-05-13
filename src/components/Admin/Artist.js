@@ -9,10 +9,10 @@ const Artist=({ artist, update }) => {
     const [image, setImage] = useState('');
     
     useEffect(() => {
-        viewUploadedFile(artist.artist_id)
+        fetchArtistImage(artist.artist_id)
     },[]);
 
-    const viewUploadedFile = (artist_id ) => {
+    const fetchArtistImage = (artist_id ) => {
         if (artist_id !== null) {
             axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(
                 response => {
