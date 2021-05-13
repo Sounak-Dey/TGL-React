@@ -19,6 +19,7 @@ const MyProfile=()=>{
                 (response)=>{
                     console.log(response.data);
                     setArtist(response.data);
+                    localStorage.setItem('id',response.data.artist_id);
                     toast.success("artist is been loaded",{
                         position: "bottom-center",
                     });

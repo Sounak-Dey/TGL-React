@@ -7,6 +7,7 @@ import {toast} from 'react-toastify';
 const AddProduct=()=>{
 
     const [categories,setCategories]=useState([]);
+   
 
     useEffect(() => {
         document.title="add product";
@@ -20,19 +21,46 @@ const AddProduct=()=>{
     },[]);
 
     const id = localStorage.getItem('id');
+    console.log(id);
     const [product,setProduct]=useState({art_id : id});
-    
+    var [photo, setPhoto] = useState(null);
 
     //form handler function
     const handleForm=(e)=>{
         console.log(product);
+        console.log(typeof(product.cate_id))
+        console.log(typeof(product.price))
         postDatatoServer(product);
         e.preventDefault();
     };
 
+    // image handler
+    const uploadImage = (event) => {
+
+        setPhoto(event.target.files[0]);
+        console.log(photo);
+
+    }
+      
+    // art_id: null
+    // cate_id: 1
+    // description: "asdsa"
+    // name: "Wallpaper"
+    // price: "100"
+
     //creating function to post data
     const postDatatoServer= (data) => {
-        axios.post( `${base_url}/products`,data).then(
+        console.log(photo);
+        console.log(product);
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('artistId', data['art_id']);
+        formData.append('categoryId', data['cate_id']);
+        formData.append('description', data['description']);
+        formData.append('name', data['name']);
+        formData.append('price', data['price']);
+        
+        axios.post( `${base_url}/products`,formData).then(
             (response)=>{
                 console.log(response);
                 toast.success("Product added!",{
@@ -52,6 +80,15 @@ const AddProduct=()=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
+                <FormGroup>
+                    <label for="photo">Set Image: </label>
+                    <input 
+                        type='file'  
+                        id="file-upload"   
+                        accept="image/png, image/jpeg" 
+                        onChange = {uploadImage}
+                    />
+                </FormGroup>
                 <FormGroup>
                     <label for="username">Enter Name:</label><br/>
                     <input
