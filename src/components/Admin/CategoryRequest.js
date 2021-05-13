@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Container
@@ -6,9 +6,30 @@ import {
 import axios from "axios";
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
-import {useState} from 'react';
+
 
 const CategoryRequest=({ categoryRequest,update })=>{
+
+    const [image, setImage] = useState('');
+    
+    useEffect(() => {
+        fetchCategoryReqImage(categoryRequest.request_id)
+    },[]);
+
+    const fetchCategoryReqImage = (request_id ) => {
+        if (request_id !== null) {
+            axios.get(`${base_url}/crequest/image/${request_id}`, { responseType: 'blob' }).then(
+                response => {
+                if (response.data) {
+                    setImage(URL.createObjectURL(response.data))
+                } else {
+
+                }
+            }).catch(error => {
+                console.log("Error", error);
+            })
+        }
+    }
 
     const deleteRequest=(request_id)=>{
         axios.delete(`${base_url}/crequest/${request_id}`).then(
@@ -45,7 +66,7 @@ const CategoryRequest=({ categoryRequest,update })=>{
 
     return(
         <Card>
-            <CardImg top width="100%" alt="Card image cap" />
+            <CardImg top width="100%" src = {image} alt="Card image cap" />
             <CardBody className="text-center">
                 <CardTitle className="font-weight-bold">{categoryRequest.name}</CardTitle>
                 <CardText>{categoryRequest.about}</CardText>

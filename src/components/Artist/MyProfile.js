@@ -21,6 +21,7 @@ const MyProfile=()=>{
         const [artist,setArtist] = useState({});
         const artist_id = localStorage.getItem('id');
 
+        //fetch artist image
         const fetchArtistImage = (artist_id ) => {
             if (artist_id !== null) {
                 axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(
