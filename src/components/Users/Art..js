@@ -10,13 +10,12 @@ const Art=({ art }) => {
     const [image, setImage] = useState('');
     
     useEffect(() => {
-        viewUploadedFile(art.artist_id)
+        fetchArtistImage(art.artist_id)
     },[]);
 
- 
-    const viewUploadedFile = (art_id ) => {
-        if (art_id !== null) {
-            axios.get(`${base_url}/artists/image/${art_id}`, { responseType: 'blob' }).then(
+    const fetchArtistImage = (artist_id ) => {
+        if (artist_id !== null) {
+            axios.get(`${base_url}/artists/image/${artist_id}`, { responseType: 'blob' }).then(
                 response => {
                 if (response.data) {
                     setImage(URL.createObjectURL(response.data))
