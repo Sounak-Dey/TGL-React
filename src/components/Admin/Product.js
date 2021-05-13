@@ -12,10 +12,10 @@ const Product=({ product,update })=>{
     const [image, setImage] = useState('');
 
     useEffect(() => {
-        viewUploadedFile(product.product_id)
+        fetchProductImage(product.product_id)
     },[]);
 
-    const viewUploadedFile = (product_id ) => {
+    const fetchProductImage = (product_id ) => {
         if (product_id !== null) {
             axios.get(`${base_url}/products/image/${product_id}`, { responseType: 'blob' }).then(
                 response => {
