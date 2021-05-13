@@ -11,11 +11,11 @@ const AllArtistProducts=()=>{
             document.title = "my products";
         }, []);
 
-        const art_id = localStorage.getItem('id');
+        const email = localStorage.getItem('email');
 
         //function to call server;
         const getAllArtistsProductsFromServer = () => {
-            axios.get(`${base_url}/productsArt/${art_id}`).then(
+            axios.get(`${base_url}/productsArt/${email}`).then(
                 (response) => {
                     console.log(response.data);
                     toast.success("products has been loaded", {

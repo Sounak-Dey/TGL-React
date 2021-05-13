@@ -17,7 +17,7 @@ const Login=()=>{
         localStorage.clear();
     },[]);
     const [credentials, setCredentials] = useState();
-
+    const [artist,setArtist] = useState({});
     //form handler function
     const handleSubmit=(e)=>{
         console.log(credentials);
@@ -32,18 +32,37 @@ const Login=()=>{
           (response)=>{
               console.log(response);
               console.log(response.data);
-
-              toast.success("Logged in!",{
-                  position: "bottom-center",
-          });  
-              if(response.data === ""){
+            if(response.data == ""){ 
+              toast.error("Invalid username and password, No such user exists",{
+                position : "bottom-center",
+              });}
+            else if(response.data.type === 1){
                   localStorage.setItem('type',1);
-              }
-              else {
+                  toast.success("Admin Logged in!",{
+                    position: "bottom-center",
+            });}
+            else if(response.data.type === 2) {
                   localStorage.setItem('type', 2);
-                  localStorage.setItem('email', response.data.email)
-                  localStorage.setItem('id', response.data.artist_id);
+                  localStorage.setItem('email', response.data.username);
+                  toast.success("Artist Logged in!",{
+                    position: "bottom-center",
+            });
+                 // localStorage.setItem('id', response.data.artist_id);
+                //  var email = localStorage.getItem("username")
+                //  axios.get( `${base_url}/artists/${email}`).then(
+                //   (response)=>{
+                //     console.log(response.data);
+                //     setArtist(response.data);
+                //     console.log(artist);
+                // },
+                // (error)=>{
+                //     console.log(error);
+                // }
+                // )
               }
+              // else if(response.data.type == "undefined"){
+              //   toast.error("Invalid username and password, No such user exists");
+              // }
           },(error)=>{
               console.log(error);
               toast.error("Something went wrong!",{

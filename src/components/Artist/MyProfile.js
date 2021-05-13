@@ -12,7 +12,7 @@ const MyProfile=()=>{
         },[]);
 
         const email = localStorage.getItem('email');
-    const [artist,setArtist] = useState({});
+        const [artist,setArtist] = useState({});
         //function to call server;
         const getArtistFromServer=()=>{
             axios.get(`${base_url}/artists/${email}`).then(
