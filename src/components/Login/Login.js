@@ -10,6 +10,7 @@ import Artists_Options from "../Artist/Artists-Options";
 import Register from "../Artist/Register";
 import Explore from "../Users/Explore";
 import { Link } from 'react-router-dom';
+import './Login.css'
 
 const Login=()=>{
     useEffect(()=>{
