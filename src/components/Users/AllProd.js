@@ -44,7 +44,7 @@ const AllProd = (props) => {
     return (
         <div>
             <div className = 'text-center' >
-            <h1>All Products</h1>
+            <h1>Products</h1>
             {/* <p>list of products are given:</p> */}
             </div>
             <Container fluid>

@@ -47,7 +47,7 @@ const AllArt = (props) => {
         <div>
             
             <div className = 'text-center' >
-                <h1>All Artists</h1>
+                <h1>Artists</h1>
                 {/* <p>list of artists are given:</p> */}
             </div>
             <Container fluid>

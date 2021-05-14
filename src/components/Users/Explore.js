@@ -44,17 +44,17 @@ const Explore=(props)=>{
                 <Row  >
                     <Col ms={4} className = 'text-center m-5'>
                         <Button  style={{width: '80%', height: '500%', backgroundImage: `url(${cg})` }} onClick={categories}/><br/>
-                        <h1>All Categories</h1>
+                        <h1>Categories</h1>
                     </Col>
                     <Col ms={4} className = 'text-center m-5'>
 
                         <Button  style={{width: '80%', height: '500%', backgroundImage: `url(${ag})` }} onClick={artists}/><br/>
-                        <h1>All Artists</h1>
+                        <h1>Artists</h1>
                     </Col>
                     <Col ms={4} className = 'text-center m-5'>
                     
                         <Button  style={{width: '80%', height: '500%', backgroundImage: `url(${bg})` }} onClick={products}/><br/>
-                        <h1> All Products</h1>
+                        <h1>Products</h1>
                     </Col>
                 </Row>
                 <Row style={{marginTop:'15%'}}>

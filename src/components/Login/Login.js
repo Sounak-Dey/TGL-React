@@ -6,7 +6,7 @@ import gb from './gift-box.png'
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 import { withRouter } from "react-router-dom";
-import {Button, Col, Container, Row} from 'reactstrap';
+import {Button, Col, Container, Row, Badge} from 'reactstrap';
 
 
 const Login=(props)=>{
@@ -100,17 +100,23 @@ const Login=(props)=>{
 };
   return(
     <div >
-        <Container >
-          <Row styles={{  }}>
+        <Container styles={{ backgroundColor:'black' }} >
+        <h2 className='text-center mt-5 '>Welcome</h2>
+        <h3 className='text-center '>To</h3>
+          <h1 className='text-center mt-2' ><Badge color="primary"> The Gift Library</Badge></h1>
+          
+          <Row >
+          
             <Col sm='6'>
-                <img src = {gb} style= {{ width:'66%', height:'60%', marginTop: '30%'}}/> <br/>
+              
+                <img src = {gb} style= {{ width:'66%', height:'60%', marginTop: '10%'}}/> <br/>
                 
-                <Button onClick={explore} style={{width:'60%', height:'8%', marginTop: '5%'}} >Explore</Button><br/>
-                <Button onClick={register} style={{width:'60%', height:'8%', marginTop: '5%'}} >Register</Button>
+                <Button color="info" onClick={explore} style={{width:'60%', height:'8%', marginTop: '5%'}} >Explore</Button><br/>
+                <Button color="warning" onClick={register} style={{width:'60%', height:'8%', marginTop: '5%'}} >Register</Button>
             </Col>
             <Col sm = '6'>
 
-                <img src={avatar} style= {{ width:'80%', height:'80%', marginTop: '15%'}}/>
+                <img src={avatar} style= {{ width:'80%', height:'80%', marginTop: '5%'}}/>
 
                 <input 
                   type="text" 
@@ -124,7 +130,7 @@ const Login=(props)=>{
                   onChange={(e) => setCredentials({...credentials,password:e.target.value})} 
                   style={{marginLeft: '20%', marginTop: '2%'}}/><br/>
 
-                <Button  onClick={handleSubmit} style={{width: '20%', marginLeft: '29%', marginTop: '5%'}}> Login </Button>
+                <Button color="success" onClick={handleSubmit} style={{width: '20%', marginLeft: '29%', marginTop: '5%'}}> Login </Button>
 
             </Col>
           </Row>

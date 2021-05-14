@@ -45,7 +45,7 @@ const AllCat = (props) => {
     return (
         <div>
             <div className = 'text-center' >
-                <h1>All Categories</h1>
+                <h1>Categories</h1>
                 {/* <p>list of categories are given:</p> */}
             </div>
             
