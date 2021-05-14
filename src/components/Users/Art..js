@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Container } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Container, Col } from 'reactstrap';
 import axios from 'axios';
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
@@ -29,14 +29,17 @@ const Art=({ art }) => {
     }
 
     return(
-        <Card>
-            <CardImg top width="100%" src = {image} alt="Card image cap" />
-            <CardBody className="text-center">
-                <CardTitle className="font-weight-bold">{art.name} {art.artist_id}</CardTitle>
-                <CardSubtitle>{art.email} <br/>{art.website}<br/> {art.number}</CardSubtitle>
-                <CardText>{art.about}</CardText>
-            </CardBody>
-        </Card>
+        
+            <Card className = {'mt-5 bdr'}>
+                <CardImg top width="100%" src = {image} alt="Card image cap" />
+                <CardBody className="text-center">
+                    <CardTitle className="font-weight-bold">{art.name} {art.artist_id}</CardTitle>
+                    <CardSubtitle>{art.email} <br/>{art.website}<br/> {art.number}</CardSubtitle>
+                    <CardText>{art.about}</CardText>
+                </CardBody>
+            </Card>
+        
+        
     )
 }
 

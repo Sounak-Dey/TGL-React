@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Art from "./Art.";
-import {Button} from "reactstrap";
+import {Button, Col, Row, Container} from "reactstrap";
 import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
 import { withRouter } from "react-router-dom";
+import './Art.css';
 
 const AllArt = (props) => {
 
@@ -45,14 +46,30 @@ const AllArt = (props) => {
     return(
         <div>
 
-            <h1>All artists</h1>
-            <p>list of artists are given:</p>
-            {
-                artists.length>0
-                    ? artists.map((item)=> <Art key={item.artist_id} art={item}/>)
-                    : "No artists"
-            }
- <Button onClick={back}>Back</Button>
+            {/* <Button onClick={back}>Back</Button> */}
+
+            <div className = 'text-center'>
+                <h1>All artists</h1>
+                <p>list of artists are given:</p>
+            </div>
+            <Container fluid>
+                 <Row>
+                    {
+                        
+                        artists.length>0
+                            ? artists.map((item)=> 
+                        
+                                    <Col sm='3'>
+                                        <Art key={item.artist_id} art={item} />
+                                    </Col>
+                            
+                            
+                                )
+                            : "No artists"
+                    }
+                </Row>
+            </Container>
+            <Button onClick={back}>Back</Button>
 
         </div>
     );

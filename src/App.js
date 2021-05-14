@@ -63,13 +63,15 @@ function App() {
                      <Route path={'/Artists-Options/update-password'} component={UpdatePassword} exact/>
                      <Route path={'/Artists-Options/add-product'} component={AddProduct} exact/>
 
+                     
+                    
+                 </Col>
+             </Row>
+
                      <Route path={'/all-artists'} component={AllArt} exact/>
                      <Route path={'/all-products'} component={AllProd} exact/>
                      <Route path={'/all-categories'} component={AllCat} exact/>
                      <Route path={'/add-category-request'} component={AddCategoryRequest} exact/>
-                    
-                 </Col>
-             </Row>
     
          </Router>
      </div>
