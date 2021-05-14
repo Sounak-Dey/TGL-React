@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Button} from "reactstrap";
+import {Button, Col, Row, Container} from "reactstrap";
 import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
@@ -43,15 +43,26 @@ const AllProd = (props) => {
 
     return (
         <div>
-
+            <div className = 'text-center' >
             <h1>All Products</h1>
-            <p>list of products are given:</p>
-            {
-                products.length > 0
-                    ? products.map((item) => <Prod key={item.product_id} prod={item} />)
-                    : "No products"
-            }
-<Button onClick={back}>Back</Button>
+            {/* <p>list of products are given:</p> */}
+            </div>
+            <Container fluid>
+                 <Row>
+                    {
+                        products.length > 0
+                            ? products.map((item) => 
+                            <Col sm="2">
+                                <Prod key={item.product_id} prod={item} />
+                            </Col>
+                            )
+                            : "No products"
+                    }
+                  </Row> 
+            </Container>      
+
+            <Button onClick={back}>Back</Button>
+
         </div>
     );
 };

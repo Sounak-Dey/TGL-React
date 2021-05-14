@@ -45,12 +45,10 @@ const AllArt = (props) => {
 
     return(
         <div>
-
-            {/* <Button onClick={back}>Back</Button> */}
-
-            <div className = 'text-center'>
-                <h1>All artists</h1>
-                <p>list of artists are given:</p>
+            
+            <div className = 'text-center' >
+                <h1>All Artists</h1>
+                {/* <p>list of artists are given:</p> */}
             </div>
             <Container fluid>
                  <Row>

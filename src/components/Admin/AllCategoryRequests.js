@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CategoryRequest from "./CategoryRequest";
-import {Button} from "reactstrap";
+import {Button, Col, Row, Container} from "reactstrap";
 import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
@@ -43,14 +43,30 @@ const AllCategoryRequests = () => {
     return(
         <div>
 
-            <h1>All Category Requests</h1>
-            <p>list of requests are given:</p>
-            {
+            <div className = 'text-center' >
+                <h1>All Category Requests</h1>
+                {/* <p>list of products are given:</p> */}
+            </div>
+            {/* {
                 categoryRequests.length>0
                     ? categoryRequests.map((item)=> <CategoryRequest key={item.name} categoryRequest={item}
                     update={UpdateRequests}/>)
                     : "No requests"
-            }
+            } */}
+
+            <Container fluid>
+                 <Row>
+                    {
+                        categoryRequests.length > 0
+                            ? categoryRequests.map((item) => 
+                            <Col sm="2">
+                                <CategoryRequest key={item.name} categoryRequest={item} update={UpdateRequests}/>
+                            </Col>
+                            )
+                            : "No categoryRequests"
+                    }
+                  </Row> 
+            </Container>
 
         </div>
     );

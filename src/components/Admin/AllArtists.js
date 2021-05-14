@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Artist from "./Artist";
-import {Button} from "reactstrap";
+import {Button, Col, Row, Container} from "reactstrap";
 import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
@@ -44,13 +44,29 @@ const AllArtists = () => {
     return(
         <div>
 
-            <h1>All artists</h1>
-            <p>list of artists are given:</p>
-            {
+            <div className = 'text-center m-2'  >
+                <h1>All Artists </h1>
+                {/* <p>list of products are given:</p> */}
+            </div>
+            {/* {
                 artists.length>0
                     ? artists.map((item)=> <Artist key={item.artist_id} artist={item} update={UpdateArtists} />)
                     : "No artists"
-            }
+            } */}
+
+            <Container fluid>
+                 <Row>
+                    {
+                        artists.length > 0
+                            ? artists.map((item) => 
+                            <Col sm="3">
+                                <Artist key={item.artist_id} artist={item} update={UpdateArtists} />
+                            </Col>
+                            )
+                            : "No artists"
+                    }
+                  </Row> 
+            </Container> 
 
         </div>
     );

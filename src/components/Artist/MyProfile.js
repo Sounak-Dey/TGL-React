@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Artist from "../Admin/Artist";
-import {Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Container} from "reactstrap";
+import {Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Col, Row, Container} from "reactstrap";
 import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
@@ -78,14 +78,19 @@ const MyProfile=()=>{
                 {/*        : "No artists"*/}
                 {/*}*/}
 
-                <Card>
-                    <CardImg top width="100%" src = {image} alt="Card image cap" />
-                    <CardBody className="text-center">
-                        <CardTitle className="font-weight-bold">{artist.name} {artist.artist_id}</CardTitle>
-                        <CardSubtitle>{artist.email} <br/>{artist.website}<br/> {artist.number}</CardSubtitle>
-                        <CardText>{artist.about}</CardText>
-                    </CardBody>
-                </Card>
+                <Row>
+                    <Col sm ='7' className = {'m-5'}  >
+                        <Card>
+                            <CardImg top width="100%" src = {image} alt="Card image cap" />
+                            <CardBody className="text-center">
+                                <CardTitle className="font-weight-bold">{artist.name} {artist.artist_id}</CardTitle>
+                                <CardSubtitle>{artist.email} <br/>{artist.website}<br/> {artist.number}</CardSubtitle>
+                                <CardText>{artist.about}</CardText>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                </Row>
+                
             </div>
         );
 }

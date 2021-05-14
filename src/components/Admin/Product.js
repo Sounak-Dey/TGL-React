@@ -43,7 +43,7 @@ const Product=({ product,update })=>{
     };
 
     return(
-        <Card>
+        <Card className = {'mt-5'} style = {{borderColor : 'black'}, {borderRadius : '3rem'}}>
             <CardImg top width="100%" src = {image} alt="Card image cap" />
             <CardBody className="text-center">
                 <CardTitle className="font-weight-bold">{product.name}</CardTitle>

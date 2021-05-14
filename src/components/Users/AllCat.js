@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cat from "./Cat";
-import {Button} from "reactstrap";
+import {Button, Col, Row, Container} from "reactstrap";
 import base_url from "../../api/bootapi";
 import axios from "axios";
 import {toast} from 'react-toastify';
@@ -44,15 +44,34 @@ const AllCat = (props) => {
 
     return (
         <div>
-
-            <h1>All Categories</h1>
-            <p>list of categories are given:</p>
-            {
+            <div className = 'text-center' >
+                <h1>All Categories</h1>
+                {/* <p>list of categories are given:</p> */}
+            </div>
+            
+            {/* {
                 categories.length > 0
                     ? categories.map((item) => <Cat key={item.category_id} cat={item}/>)
                     : "No categories"
-            }
-<Button onClick={back}>Back</Button>
+            } */}
+
+            <Container fluid>
+                 <Row>
+                    {
+                        
+                        categories.length>0
+                            ? categories.map((item)=> 
+                        
+                                    <Col sm='3'>
+                                        <Cat key={item.category_id} cat={item}/>
+                                    </Col>
+                            
+                                )
+                            : "No categories"
+                    }
+                </Row>
+            </Container>
+            <Button onClick={back}>Back</Button>
         </div>
     );
 };
