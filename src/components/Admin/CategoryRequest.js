@@ -71,11 +71,11 @@ const CategoryRequest=({ categoryRequest,update })=>{
                 <CardTitle className="font-weight-bold">{categoryRequest.name}</CardTitle>
                 <CardText>{categoryRequest.about}</CardText>
                 <Container>
-                    <Button color={"success"} onClick={()=>{
+                    <Button className='m-1' color={"success"} onClick={()=>{
                         addCategory(categoryRequest);
                         deleteRequest(categoryRequest.request_id);
                     }}>Approve</Button>
-                    <Button color={"danger"} onClick={()=>{
+                    <Button className='m-1' color={"danger"} onClick={()=>{
                                 deleteRequest(categoryRequest.request_id);
                             }}>Deny</Button>
                 </Container>

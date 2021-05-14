@@ -59,7 +59,7 @@ const AllCategoryRequests = () => {
                     {
                         categoryRequests.length > 0
                             ? categoryRequests.map((item) => 
-                            <Col sm="2">
+                            <Col sm="3">
                                 <CategoryRequest key={item.name} categoryRequest={item} update={UpdateRequests}/>
                             </Col>
                             )
