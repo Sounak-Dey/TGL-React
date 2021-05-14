@@ -101,12 +101,12 @@ const Login=(props)=>{
   return(
     <div >
         <Container >
-          <Row styles={{ backgroundImage:`url(${wavei})` }}>
+          <Row styles={{  }}>
             <Col sm='6'>
                 <img src = {gb} style= {{ width:'66%', height:'60%', marginTop: '30%'}}/> <br/>
                 
-                <Button onClick={explore} style={{width:'60%', marginTop: '5%'}} >Explore</Button><br/>
-                <Button onClick={register} style={{width:'60%', marginTop: '5%'}} >Register</Button>
+                <Button onClick={explore} style={{width:'60%', height:'8%', marginTop: '5%'}} >Explore</Button><br/>
+                <Button onClick={register} style={{width:'60%', height:'8%', marginTop: '5%'}} >Register</Button>
             </Col>
             <Col sm = '6'>
 
