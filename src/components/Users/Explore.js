@@ -1,7 +1,6 @@
 import React, {Component, useEffect} from "react";
 import {Row, Col, Button, Container, Label} from "reactstrap";
 import { withRouter } from "react-router-dom";
-// import bg from './wave.png'
 import cg from './catgift.jpg'
 import ag from './artgift.jpg'
 import bg from './prodgift.jpg'

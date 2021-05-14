@@ -74,97 +74,103 @@ const Register=(props)=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
-                <FormGroup>
-                    <label for="photo">Set Image: </label>
+                <FormGroup className='m-5'>
+                    <label for="photo" style={{marginLeft: '35%'}}>Set Image: </label>
                     <input 
                         type='file'  
                         id="file-upload"   
                         accept="image/png, image/jpeg" 
+                        style={{marginLeft: '10%'}}
                         onChange = {uploadImage}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="username">Enter Name:</label><br/>
+                <FormGroup className='m-5'>
+                    <label for="username" style={{marginLeft: '35%'}}>Enter Name:</label>
                     <input
                         type={"text"}
                         placeholder={"name"}
                         name={"artistname"}
                         id={"name"}
+                        style={{marginLeft: '10%'}}
                         onChange={(e)=>{
                             setArtist({...artist,name: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="username">Enter email:</label><br/>
+                <FormGroup className='m-5'>
+                    <label for="username" style={{marginLeft: '35%'}}>Enter email:</label>
                     <input
                         type={"text"}
                         placeholder={"Username"}
                         name={"artistemail"}
                         id={"email"}
+                        style={{marginLeft: '11%'}}
                         onChange={(e)=>{
                             setArtist({...artist,email: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="email">Enter password:</label>
+                <FormGroup className='m-5'>
+                    <label for="email" style={{marginLeft: '35%'}}>Enter password:</label>
                     <input
                         type={"password"}
                         placeholder={"password"}
                         name={"artistpassword"}
                         id={"password"}
+                        style={{marginLeft: '9%'}}
                         onChange={(e)=>{
                             setArtist({...artist,password: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="website">Enter website:</label>
+                <FormGroup className='m-5'>
+                    <label for="website" style={{marginLeft: '35%'}}>Enter website:</label>
                     <input
                         type={"text"}
                         placeholder={"website"}
                         name={"artistwebsite"}
                         id={"website"}
+                        style={{marginLeft: '10%'}}
                         onChange={(e)=>{
                             setArtist({...artist,website: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="number">Enter number:</label>
+                <FormGroup className='m-5'>
+                    <label for="number" style={{marginLeft: '35%'}}>Enter number:</label>
                     <input
                         type={"text"}
                         placeholder={"number"}
                         name={"artistnumber"}
                         id={"number"}
+                        style={{marginLeft: '10%'}}
                         onChange={(e)=>{
                             setArtist({...artist,number: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="description">Enter Description:</label>
+                <FormGroup className='m-5'>
+                    <label for="description" style={{marginLeft: '35%'}}>Enter Description:</label>
                     <input
                         type={"textarea"}
                         placeholder={"description"}
                         name={"artistdescription"}
                         id={"about"}
-                        style={{height:150}}
+                        style={{height:150, marginLeft: '8%'}}
                         onChange={(e)=>{
                             setArtist({...artist,about: e.target.value})
                         }}
                     />
                 </FormGroup>
                 
-                {/*photo left*/}
 
                 <Container className={"text-center"}>
                     <Button type="submit" color={"success"}>Register</Button>
                     <Button
                         type="reset"
-                        color={"warning ml-3"}>Clear</Button>
-                    <Button onClick={back}>Back</Button>
+                        color={"warning ml-3"}
+                        >Clear</Button>
+                    <Button style={{marginLeft:'1%'}} onClick={back}>Back</Button>
                 </Container>
             </Form>
         </div>

@@ -7,7 +7,7 @@ import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 import { withRouter } from "react-router-dom";
 import {Button, Col, Container, Row} from 'reactstrap';
-// import '.Login.css';
+
 
 const Login=(props)=>{
     useEffect(()=>{
