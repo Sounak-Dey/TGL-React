@@ -4,7 +4,6 @@ import axios from 'axios';
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 import { withRouter } from "react-router-dom";
-import './Art.css'
 
 const Art=({ art }) => {
 
@@ -31,7 +30,7 @@ const Art=({ art }) => {
 
     return(
         
-            <Card className = 'mt-5 bdr' style = {{borderColor : 'black'}, {borderRadius : '3rem'} }>
+            <Card className = 'mt-5' style = {{borderColor : 'black'}, {borderRadius : '3rem'} }>
                 <CardImg top width="100%" src = {image} alt="Card image cap" />
                 <CardBody className="text-center">
                     <CardTitle className="font-weight-bold">{art.name} {art.artist_id}</CardTitle>

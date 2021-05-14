@@ -16,8 +16,6 @@ import UpdatePassword from "./components/Artist/UpdatePassword";
 import UpdateProfile from "./components/Artist/UpdateProfile";
 import Register from "./components/Artist/Register";
 import Login from "./components/Login/Login";
-import Fn from './components/TestImage.js';
-import Func from './components/testfn';
 import Artists_Options from "./components/Artist/Artists-Options"
 import AddProduct from './components/Artist/AddProduct';
 import AddCategoryRequest from './components/Users/AddCategoryRequest';
@@ -30,8 +28,6 @@ function App() {
   return(
 
      <div>
-         {/* <Fn/> */}
-         {/* <Func /> */}
 
          <Router>
     
