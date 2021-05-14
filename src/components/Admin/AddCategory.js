@@ -62,35 +62,37 @@ const AddCategory=()=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
-                <FormGroup>
-                    <label for="photo">Set Image: </label>
+                <FormGroup className='m-5'>
+                    <label for="photo" style={{marginLeft: '30%'}}>Set Image: </label>
                     <input 
                         type='file'  
                         id="file-upload"   
                         accept="image/png, image/jpeg" 
+                        style={{marginLeft: '12%'}}
                         onChange = {uploadImage}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="username">Enter Name:</label><br/>
+                <FormGroup className='m-5'>
+                    <label for="username" style={{marginLeft: '30%'}}>Enter Name:</label>
                     <input
                         type={"text"}
                         placeholder={"name"}
                         name={"categoryname"}
                         id={"name"}
+                        style={{marginLeft: '11%'}}
                         onChange={(e)=>{
                             setCategory({...category,name: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="description">Enter Description:</label>
+                <FormGroup className='m-5'>
+                    <label for="description" style={{marginLeft: '30%'}}>Enter Description:</label>
                     <input
                         type={"textarea"}
                         placeholder={"description"}
                         name={"categorydescription"}
                         id={"about"}
-                        style={{height:150}}
+                        style={{height:150, marginLeft: '8%'}}
                         onChange={(e)=>{
                             setCategory({...category,about: e.target.value})
                         }}
