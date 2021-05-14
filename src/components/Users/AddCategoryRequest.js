@@ -67,35 +67,37 @@ import { withRouter } from "react-router-dom";
 
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
-                <FormGroup>
+                <FormGroup style={{marginLeft: '30%', marginTop:'5%'}}>
                     <label for="photo">Set Image: </label>
                     <input 
                         type='file'  
                         id="file-upload"   
                         accept="image/png, image/jpeg" 
+                        style={{marginLeft: '10%'}}
                         onChange = {uploadImage}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="username">Enter Name:</label><br/>
+                <FormGroup style={{marginLeft: '30%', marginTop:'5%'}}>
+                    <label for="username">Enter Name:</label>
                     <input
                         type={"text"}
                         placeholder={"name"}
                         name={"categoryname"}
                         id={"name"}
+                        style={{marginLeft: '10%'}}
                         onChange={(e)=>{
                             setCategoryRequest({...categoryRequest,name: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
+                <FormGroup style={{marginLeft: '30%'}}>
                     <label for="description">Enter Description:</label>
                     <input
                         type={"textarea"}
                         placeholder={"description"}
                         name={"categorydescription"}
                         id={"about"}
-                        style={{height:150}}
+                        style={{height:150, marginLeft: '8%', marginTop:'5%'}}
                         onChange={(e)=>{
                             setCategoryRequest({...categoryRequest,about: e.target.value})
                         }}

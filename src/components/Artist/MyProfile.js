@@ -79,7 +79,7 @@ const MyProfile=()=>{
                 {/*}*/}
 
                 <Row>
-                    <Col sm ='7' className = {'m-5'}  >
+                    <Col sm ='7' className = {'m-5'}   >
                         <Card>
                             <CardImg top width="100%" src = {image} alt="Card image cap" />
                             <CardBody className="text-center">
