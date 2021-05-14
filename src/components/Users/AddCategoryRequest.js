@@ -63,7 +63,7 @@ import { withRouter } from "react-router-dom";
 
  return (
         <div>
-            <Container className="themed-container" >
+            <Container className="themed-container" style= {{borderBlockColor: 'black'}} >
 
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>

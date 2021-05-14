@@ -6,7 +6,7 @@ import gb from './gift-box.png'
 import base_url from "../../api/bootapi";
 import {toast} from "react-toastify";
 import { withRouter } from "react-router-dom";
-import {Button} from 'reactstrap';
+import {Button, Col, Container, Row} from 'reactstrap';
 // import '.Login.css';
 
 const Login=(props)=>{
@@ -99,60 +99,92 @@ const Login=(props)=>{
       )
 };
   return(
-    <div> 
-     
-      <body>
-      
-          <img className="wave" src={wavei}/>
-          <div className="container">
-              <div className="img">
-                <img src = {gb} />
-              </div>
-              <div className="login-content">
-                <form onSubmit={handleSubmit}>
-                  <img src={avatar}/>
-                  <h2 className="title">Welcome</h2>
-                        <div className="input-div one">
-                          <div className="i">
-                              <i className="fas fa-user"></i>
-                          </div>
-                          <div className="div">
-                              <input type="text" placeholder=" Username" onChange={(e) => setCredentials({...credentials,username:e.target.value})} className="input"/>
-                          </div>
-                        </div>
-                        <div className="input-div pass">
-                          <div className="i"> 
-                              <i className="fas fa-lock"></i>
-                          </div>
-                          <div className="div">    
-                              <input type="password" placeholder="Password" onChange={(e) => setCredentials({...credentials,password:e.target.value})} className="input"/>
-                          </div>
-                        </div>
-                        <input type="submit" className="btn" value="Login"/>
-                        <Button onClick={explore}>Explore</Button>
-                        <Button onClick={register}>Register</Button>
-                      </form>
-                  </div>
-            </div>
+    <div >
+        <Container >
+          <Row styles={{ backgroundImage:`url(${wavei})` }}>
+            <Col sm='6'>
+                <img src = {gb} style= {{ width:'66%', height:'60%', marginTop: '30%'}}/> <br/>
+                
+                <Button onClick={explore} style={{width:'60%', marginTop: '5%'}} >Explore</Button><br/>
+                <Button onClick={register} style={{width:'60%', marginTop: '5%'}} >Register</Button>
+            </Col>
+            <Col sm = '6'>
 
-      </body>
-      {/* <div className="login-wrapper">
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-      </div> */}
+                <img src={avatar} style= {{ width:'80%', height:'80%', marginTop: '15%'}}/>
+
+                <input 
+                  type="text" 
+                  placeholder=" Username" 
+                  onChange={(e) => setCredentials({...credentials,username:e.target.value})} 
+                  style={{marginLeft: '20%'}}/>
+
+                <input 
+                  type="password" 
+                  placeholder="Password" 
+                  onChange={(e) => setCredentials({...credentials,password:e.target.value})} 
+                  style={{marginLeft: '20%', marginTop: '2%'}}/><br/>
+
+                <Button  onClick={handleSubmit} style={{width: '20%', marginLeft: '29%', marginTop: '5%'}}> Login </Button>
+
+            </Col>
+          </Row>
+        </Container>
+
     </div>
+     
+      // {/* <body>
+      
+      //     <img className="wave" src={wavei}/>
+      //     <div className="container">
+      //         <div className="img">
+      //           <img src = {gb} />
+      //         </div>
+      //         <div className="login-content">
+      //           <form onSubmit={handleSubmit}>
+      //             <img src={avatar}/>
+      //             <h2 className="title">Welcome</h2>
+      //                   <div className="input-div one">
+      //                     <div className="i">
+      //                         <i className="fas fa-user"></i>
+      //                     </div>
+      //                     <div className="div">
+      //                         <input type="text" placeholder=" Username" onChange={(e) => setCredentials({...credentials,username:e.target.value})} className="input"/>
+      //                     </div>
+      //                   </div>
+      //                   <div className="input-div pass">
+      //                     <div className="i"> 
+      //                         <i className="fas fa-lock"></i>
+      //                     </div>
+      //                     <div className="div">    
+      //                         <input type="password" placeholder="Password" onChange={(e) => setCredentials({...credentials,password:e.target.value})} className="input"/>
+      //                     </div>
+      //                   </div>
+      //                   <input type="submit" className="btn" value="Login"/>
+      //                   <Button onClick={explore}>Explore</Button>
+      //                   <Button onClick={register}>Register</Button>
+      //                 </form>
+      //             </div>
+      //       </div>
+
+      // </body> */}
+      // {/* <div className="login-wrapper">
+      // <h1>Please Log In</h1>
+      // <form onSubmit={handleSubmit}>
+      //   <label>
+      //     <p>Username</p>
+      //     <input type="text" onChange={e => setUserName(e.target.value)} />
+      //   </label>
+      //   <label>
+      //     <p>Password</p>
+      //     <input type="password" onChange={e => setPassword(e.target.value)} />
+      //   </label>
+      //   <div>
+      //     <button type="submit">Submit</button>
+      //   </div>
+      // </form>
+      // </div> */}
+
+    // {/* </div> */}
     
 
   )
