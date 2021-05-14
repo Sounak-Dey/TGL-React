@@ -38,7 +38,7 @@ function App() {
              <Route exact path='/Register' component={Register}/>
              <Route exact path='/Explore' component={Explore}/>
 
-             <Row>
+             <Row className='m-5' >
                  <Col md={4}>
                      <Route path={'/Admin-Options'} component={Admin_Options}/>
                      <Route path={'/Artists-Options'} component={Artists_Options}/>

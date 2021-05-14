@@ -60,62 +60,66 @@ const UpdateProfile=()=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
-                <FormGroup>
-                    <label for="username">Enter Name:</label><br/>
+                <FormGroup className='m-5' >
+                    <label for="username" style={{marginLeft: '25%'}}>Enter Name:</label>
                     <input
                         type={"text"}
                         name={"artistname"}
                         id={"name"}
                         value={artist2.name}
+                        style={{marginLeft: '20%'}}
                         onChange={(e)=>{
                             setArtist2({...artist2,name: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="email">Enter email:</label>
+                <FormGroup className='m-5' >
+                    <label for="email" style={{marginLeft: '25%'}}>Enter email:</label>
                     <input
                         type={"text"}
                         name={"artistemail"}
                         id={"email"}
                         value={artist2.email}
+                        style={{marginLeft: '20%'}}
                         onChange={(e)=>{
                             setArtist2({...artist2,email: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="website">Enter website:</label>
+                <FormGroup className='m-5' >
+                    <label for="website" style={{marginLeft: '25%'}}>Enter website:</label>
                     <input
                         type={"text"}
                         name={"artistwebsite"}
                         id={"website"}
                         value={artist2.website}
+                        style={{marginLeft: '20%'}}
                         onChange={(e)=>{
                             setArtist2({...artist2,website: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="number">Enter number:</label>
+                <FormGroup className='m-5' >
+                    <label for="number" style={{marginLeft: '25%'}}>Enter number:</label>
                     <input
                         type={"text"}
                         name={"artistnumber"}
                         id={"number"}
                         value={artist2.number}
+                        style={{marginLeft: '20%'}}
                         onChange={(e)=>{
                             setArtist2({...artist2,number: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="description">Enter Description:</label>
+                <FormGroup className='m-5' >
+                    <label for="description" style={{marginLeft: '25%'}}>Enter Description:</label>
                     <input
                         type={"textarea"}
                         name={"artistdescription"}
                         id={"about"}
                         value={artist2.about}
-                        style={{height:150}}
+                        style={{height:150, marginLeft: '20%'}}
                         onChange={(e)=>{
                             setArtist2({...artist2,about: e.target.value})
                         }}

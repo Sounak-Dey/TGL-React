@@ -67,7 +67,11 @@ const AllArt = (props) => {
                     }
                 </Row>
             </Container>
-            <Button onClick={back}>Back</Button>
+                <Row>
+                    <Col className = 'text-center m-5' >
+                        <Button onClick={back}>Back</Button>
+                    </Col>
+                </Row>
 
         </div>
     );

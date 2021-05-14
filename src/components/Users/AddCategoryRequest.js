@@ -63,6 +63,8 @@ import { withRouter } from "react-router-dom";
 
  return (
         <div>
+            <Container className="themed-container" >
+
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
                 <FormGroup>
@@ -101,13 +103,18 @@ import { withRouter } from "react-router-dom";
                 </FormGroup>
 
                 <Container className={"text-center"}>
-                    <Button type="submit" color={"success"}>Add Category Request</Button>
+                    <Button type="submit" color={"success"} className='text-center m-5' >Add Category Request</Button>
+                    
                     <Button
                         type="reset"
-                        color={"warning ml-3"}>Clear</Button>
-                        <Button onClick={back}>Back</Button>
+                        color={"warning ml-3"}
+                        className='text-center m-5' >Clear</Button>
+
+                        <Button className='text-center m-5' onClick={back}>Back</Button>
                 </Container>
             </Form>
+
+            </Container>
         </div>
     )
     }

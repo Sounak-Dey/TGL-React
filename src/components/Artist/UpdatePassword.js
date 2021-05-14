@@ -47,35 +47,38 @@ const UpdatePassword=()=>{
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
             <Form onSubmit={handleForm}>
-                <FormGroup>
-                    <label for="username">Enter Old Password:</label><br/>
+                <FormGroup className='m-5'>
+                    <label for="username" style={{marginLeft: '30%'}}>Enter Old Password:</label>
                     <input
                         type={"password"}
                         id={"oldPassword"}
                         placeholder={"Type Old Password"}
+                        style={{marginLeft: '5%'}}
                         onChange={(e)=>{
                             setUser({...user,old: e.target.value})
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <label for="password">Enter new Password:</label>
+                <FormGroup className='m-5' >
+                    <label for="password" style={{marginLeft: '30%'}}>Enter new Password:</label>
                     <input
                         type={"password"}
                         id={"newPassword"}
                         placeholder={"Type New Password"}
+                        style={{marginLeft: '5%'}}
                         onChange={(e)=>{
                             setUser({...user,newp: e.target.value})
                         }}
                     />
                 </FormGroup>
 
-                <FormGroup>
-                    <label for="password">Confirm new Password:</label>
+                <FormGroup className='m-5'>
+                    <label for="password" style={{marginLeft: '30%'}}>Confirm new Password:</label>
                     <input
                         type={"password"}
                         id={"newPassword2"}
                         placeholder={"Re-Type New Password"}
+                        style={{marginLeft: '5%'}}
                         onChange={(e)=>{
                             setUser({...user,newp2: e.target.value})
                         }}
@@ -83,7 +86,7 @@ const UpdatePassword=()=>{
                 </FormGroup>
 
 
-                <Container className={"text-center"}>
+                <Container className={"text-center "}>
                     <Button type="submit" color={"success"}>Update</Button>
                     <Button
                         type="reset"

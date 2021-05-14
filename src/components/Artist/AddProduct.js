@@ -79,9 +79,9 @@ const AddProduct=()=>{
     return (
         <div>
             <h1 className={"text-center"}> Fill the details : </h1>
-            <Form onSubmit={handleForm}>
-                <FormGroup>
-                    <label for="photo">Set Image: </label>
+            <Form onSubmit={handleForm} >
+                <FormGroup className='m-5' >
+                    <label for="photo">Set Image : </label><br/>
                     <input 
                         type='file'  
                         id="file-upload"   
@@ -89,7 +89,7 @@ const AddProduct=()=>{
                         onChange = {uploadImage}
                     />
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className='m-5' >
                     <label for="username">Enter Name:</label><br/>
                     <input
                         type={"text"}
@@ -101,7 +101,7 @@ const AddProduct=()=>{
                         }}
                     />
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className='m-5' >
                     <label for="price">Enter Price:</label><br/>
                     <input
                         type={"text"}
@@ -114,7 +114,8 @@ const AddProduct=()=>{
                     />
                 </FormGroup>
                 {/*dropdown having all category names as options*/}
-             <FormGroup>
+             <FormGroup className='m-5' >
+                        <label >Select Category:</label><br/>
                         <Input
                            type={"select"} name="select" id={"category-select"} onChange={(e)=>{
                                const categoryname = e.target.value;
@@ -134,8 +135,8 @@ const AddProduct=()=>{
 
              </FormGroup>
 
-                <FormGroup>
-                    <label for="description">Enter Description:</label>
+                <FormGroup className='m-5' >
+                    <label for="description" >Enter Description:</label><br/>
                     <input
                         type={"textarea"}
                         placeholder={"description"}
