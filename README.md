@@ -1,7 +1,7 @@
 # The Gift Library: 
 ### A Website for exploring various artists and gifts for loved ones.
 
-#### This is the Front-end module of the Project, done using ReactJS. The Back-end module uses Spring-Boot (DataBase used: MySQL) and is available at https://github.com/Meg-D/TheGiftLibrary.git
+#### This is the Front-end module of the Project, done using ReactJS. The Back-end module uses Spring-Boot (DataBase used: MySQL) and is available at https://github.com/Meg-D/TheGiftLibrary
 
 #
 #
